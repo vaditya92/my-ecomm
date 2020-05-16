@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t adityav92/my-ecomm -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true adityav92/my-ecomm npm run test
